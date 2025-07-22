@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Guash Portfolio</string>
+    <string name="view_projects">View My Projects</string>
+    <string name="profile_image_desc">Profile photo of Guash Berhe Tela</string>
+
+    <string name="contact_me">Contact Me</string>
+    <string name="journey_text">• Started with basic Android development in 2021
+• Built several apps using Java &amp; Firebase
+• Learned Flutter &amp; published cross-platform apps
+• Worked on ERCA invoice validator
+• Contributed to open source
+• Currently building smart apps with AI &amp; Python</string>
+
+
+</resources>

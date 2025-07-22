@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:overScrollMode="never"
+        android:scrollbars="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/socialBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp"
+            android:gravity="center_horizontal">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                app:cardCornerRadius="60dp"
+                app:cardElevation="6dp"
+                android:layout_marginTop="12dp"
+                app:cardBackgroundColor="?attr/colorSurface">
+
+                <ImageView
+                    android:id="@+id/imgProfile"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/photo"
+                    android:scaleType="centerCrop"
+                    android:contentDescription="@string/profile_image_desc"
+                    android:clipToOutline="true" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvName"
+                android:text="Guash Berhe Tela"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginTop="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:text="AI Developer | Android | Flutter | ReactJS"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:layout_marginTop="6dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvBio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="I'm a passionate AI and Android Developer..."
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:background="@color/white"
+                android:lineSpacingExtra="4dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAboutMe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="About Me"
+                android:textAllCaps="false"
+                android:layout_marginTop="24dp"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:textColor="@color/pie_react"
+                android:backgroundTint="@color/white"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvAboutHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="About Me!"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:background="@color/white"
+                android:layout_marginTop="16dp"
+                android:visibility="gone" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvAboutContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="I'm Guas Berhe, a dedicated software developer focused on Android, AI, and cross-platform mobile development. I’ve built solutions like invoice validators, tax apps, and chat systems.\n\nI'm passionate about crafting intelligent, user-friendly apps. My goal is to become a top AI-powered mobile app developer.\n\nLanguages: Tigrigna, Amharic, English\nHobbies: Tech blogs, design trends, mentoring others."
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:background="@color/white"
+                android:layout_marginTop="8dp"
+                android:lineSpacingExtra="4dp"
+                android:visibility="gone" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnMyJourney"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="My Journey"
+                android:textAllCaps="false"
+                android:layout_marginTop="16dp"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:textColor="@color/pie_firebase"
+                android:backgroundTint="@color/white"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvJourneyHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="My Journey"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:background="@color/white"
+                android:textColor="@color/black"
+                android:visibility="gone"
+                android:layout_marginTop="8dp" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvJourneyContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:padding="8dp"
+                android:background="@color/white"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:lineSpacingExtra="4dp"
+                android:visibility="gone"
+                android:text="@string/journey_text" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnShowSkills"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Show Skills"
+                android:textAllCaps="false"
+                android:textColor="@color/pie_react"
+                android:backgroundTint="@color/white"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvSkills"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:visibility="gone"
+                android:background="@color/white" />
+
+            <!-- Skill Input Layout -->
+            <LinearLayout
+                android:id="@+id/skillInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="16dp"
+                android:paddingBottom="8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@color/white">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:boxCornerRadiusTopStart="12dp"
+                        app:boxCornerRadiusTopEnd="12dp"
+                        app:boxCornerRadiusBottomStart="12dp"
+                        app:boxCornerRadiusBottomEnd="12dp"
+                        android:textColorHint="@color/pie_react"
+
+                        app:boxStrokeColor="@color/pie_react"
+                        android:layout_weight="2">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etSkillName"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:hint="Skill Name"
+                            android:textSize="11sp"
+                            android:backgroundTint="@color/pie_react"
+                            android:textColor="@color/black"
+                            android:visibility="gone" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:boxBackgroundMode="outline"
+                        app:boxStrokeColor="@color/pie_react"
+                        android:textColorHint="@color/pie_react"
+                        app:boxCornerRadiusTopStart="12dp"
+                        app:boxCornerRadiusTopEnd="12dp"
+                        app:boxCornerRadiusBottomStart="12dp"
+                        app:boxCornerRadiusBottomEnd="12dp"
+
+                        android:layout_marginStart="8dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etSkillPercent"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:hint="Accuracy %"
+                            android:textSize="11sp"
+                            android:backgroundTint="@color/pie_react"
+                            android:textColor="@color/black"
+                            android:inputType="numberDecimal"
+                            android:visibility="gone"
+
+                             />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/skillButtonGroup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnSaveSkill"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Save"
+                        android:textColor="@color/pie_react"
+                        android:backgroundTint="@color/white"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnCancelSkill"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Cancel"
+                        android:textColor="@color/error_red"
+                        android:layout_marginStart="8dp"
+                        android:backgroundTint="@color/white"/>
+                </LinearLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnAddSkill"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Add Skill"
+                    android:textColor="@color/pie_react"
+                    android:layout_marginTop="8dp"
+                    android:backgroundTint="@color/white" />
+            </LinearLayout>
+
+            <com.github.mikephil.charting.charts.PieChart
+                android:id="@+id/pieChart"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="12dp"
+                android:visibility="visible" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAddProject"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:textColor="@color/pie_firebase"
+                android:text="Add Project" />
+
+            <!-- Project Input Fields -->
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/pie_react"
+                app:boxBackgroundMode="outline"
+                app:boxStrokeColor="@color/pie_react"
+                app:boxCornerRadiusTopStart="12dp"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusBottomStart="12dp"
+                app:boxCornerRadiusBottomEnd="12dp"
+
+                android:layout_marginStart="8dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etProjectName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Project Title"
+                    android:backgroundTint="@color/pie_react"
+                    android:textColor="@color/black"
+                    android:visibility="gone" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:boxBackgroundMode="outline"
+
+                app:boxStrokeColor="@color/pie_react"
+                android:textColorHint="@color/pie_react"
+                app:boxCornerRadiusTopStart="12dp"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusBottomStart="12dp"
+                app:boxCornerRadiusBottomEnd="12dp"
+
+                android:layout_marginStart="8dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etProjectDesc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Project Description"
+                    android:backgroundTint="@color/pie_react"
+                    android:textColor="@color/black"
+                    android:visibility="gone" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:id="@+id/projectButtonGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                android:layout_marginTop="8dp">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSaveProject"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Save"
+                    android:textColor="@color/pie_firebase"
+                    android:backgroundTint="@color/white" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnCancelProject"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cancel"
+                    android:textColor="@color/error_red"
+                    android:layout_marginStart="8dp"
+                    android:backgroundTint="@color/white" />
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnShowProjects"
+                android:text="Show Projects"
+                android:textAllCaps="false"
+                android:layout_marginTop="24dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/pie_android"
+                android:backgroundTint="@color/white" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvProjects"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:visibility="gone" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnContact"
+                android:text="@string/contact_me"
+                android:textAllCaps="false"
+                android:layout_marginTop="24dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/pie_python"
+                android:backgroundTint="@color/white" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/socialBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:focusable="true"
+        android:clickable="true"
+        android:elevation="6dp"
+        app:cardElevation="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:cardBackgroundColor="?attr/colorSurface">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:weightSum="5">
+
+            <!-- Social icons -->
+            <ImageButton
+                android:id="@+id/btnLinkedIn"
+                android:layout_width="0dp"
+                android:layout_height="28dp"
+                android:layout_weight="1"
+                android:layout_margin="4dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/linkedin"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="LinkedIn" />
+
+            <ImageButton
+                android:id="@+id/btnTelegram"
+                android:layout_width="0dp"
+                android:layout_height="28dp"
+                android:layout_weight="1"
+                android:layout_margin="4dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_telegram"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Telegram" />
+
+            <ImageButton
+                android:id="@+id/btnYouTube"
+                android:layout_width="0dp"
+                android:layout_height="28dp"
+                android:layout_weight="1"
+                android:layout_margin="4dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/youtube"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="YouTube" />
+
+            <ImageButton
+                android:id="@+id/btnInstagram"
+                android:layout_width="0dp"
+                android:layout_height="28dp"
+                android:layout_weight="1"
+                android:layout_margin="4dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/instagram"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Instagram" />
+
+            <ImageButton
+                android:id="@+id/btnGithub"
+                android:layout_width="0dp"
+                android:layout_height="28dp"
+                android:layout_weight="1"
+                android:layout_margin="4dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_github"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="GitHub" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

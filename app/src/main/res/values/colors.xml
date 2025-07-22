@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="background">#F5F5F5</color>
+    <color name="light_gray">#DDDDDD</color>
+    <color name="dark_gray">#666666</color>
+    <color name="colorPrimary">#0077B6</color>
+    <color name="colorAccent">#00B4D8</color>
+    <color name="colorBackground">#F9F9F9</color>
+    <color name="textPrimary">#1E1E1E</color>
+    <color name="textSecondary">#5C5C5C</color>
+    <color name="pie_android">#42A5F5</color>
+    <color name="pie_flutter">#7E57C2</color>
+    <color name="pie_firebase">#FFCA28</color>
+    <color name="pie_python">#66BB6A</color>
+    <color name="pie_react">#26C6DA</color>
+    <color name="error_red">#F44336</color>
+    <color name="pie_node">#8D6E63</color>
+    <color name="purple_500">#6200EE</color>
+    <color name="purple_700">#3700B3</color>
+    <color name="teal_200">#03DAC5</color>
+
+
+
+    <!-- Base Background -->
+
+    <!-- Primary Colors -->
+
+    <color name="colorPrimaryDark">#1976D2</color>     <!-- Blue 700 -->
+
+    <!-- Neutral Colors -->
+
+
+    <!-- Text Colors -->
+    <color name="text_primary">#212121</color>         <!-- Dark text -->
+    <color name="text_secondary">#757575</color>       <!-- Light text -->
+
+    <!-- Button Colors -->
+    <color name="button_background">#42A5F5</color>    <!-- Blue 400 -->
+    <color name="button_text">#FFFFFF</color>
+
+    <!-- Card / Skill Item Background -->
+    <color name="skill_bg">#E3F2FD</color>             <!-- Light Blue 50 -->
+</resources>

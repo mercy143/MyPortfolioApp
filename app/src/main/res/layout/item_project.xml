@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="12dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/card_bg"
+    android:elevation="2dp">
+
+    <!-- Project Title -->
+    <TextView
+        android:id="@+id/tvProjectTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Project Title"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:contentDescription="Project title" />
+
+    <!-- Project Description -->
+    <TextView
+        android:id="@+id/tvProjectDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Project Description"
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        android:layout_marginTop="4dp"
+        android:contentDescription="Project description" />
+
+    <!-- Edit / Delete Buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp"
+        android:gravity="end">
+
+        <Button
+            android:id="@+id/btnEditProject"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Edit"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/pie_python"
+            android:contentDescription="Edit project" />
+
+        <Button
+            android:id="@+id/btnDeleteProject"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Delete"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/black"
+            android:layout_marginStart="12dp"
+            android:contentDescription="Delete project" />
+    </LinearLayout>
+
+</LinearLayout>
