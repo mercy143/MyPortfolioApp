@@ -10,6 +10,9 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.text.InputType;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -25,6 +28,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+
+    private static final String ADMIN_PASSWORD = "admin123";
 
     private Button btnAddProject, btnCancelProject, btnSaveProject;
     private LinearLayout skillButtonGroup, projectbuttonGroup;
@@ -148,45 +153,52 @@ public class MainActivity extends AppCompatActivity {
         projectList.add(new Project("Chat Messenger", "Real-time Firebase-based messaging app."));
         projectList.add(new Project("Kebele Admin System", "Digital record management for local offices."));
 
-        // Setup ProjectAdapter with edit/delete listener
+        // Setup ProjectAdapter with password-protected edit/delete
         projectAdapter = new ProjectAdapter(projectList, new ProjectAdapter.OnProjectActionListener() {
             @Override
             public void onEdit(Project project, int position) {
-                etProjectName.setText(project.getTitle());
-                etProjectDesc.setText(project.getDescription());
-                etProjectName.setVisibility(View.VISIBLE);
-                etProjectDesc.setVisibility(View.VISIBLE);
-                projectbuttonGroup.setVisibility(View.VISIBLE);
-                btnCancelProject.setVisibility(View.VISIBLE);
-                btnSaveProject.setVisibility(View.VISIBLE);
-                btnAddProject.setVisibility(View.GONE);
+                // Prompt password first
+                showPasswordDialog(() -> {
+                    // If password OK, proceed with edit UI
+                    etProjectName.setText(project.getTitle());
+                    etProjectDesc.setText(project.getDescription());
+                    etProjectName.setVisibility(View.VISIBLE);
+                    etProjectDesc.setVisibility(View.VISIBLE);
+                    projectbuttonGroup.setVisibility(View.VISIBLE);
+                    btnCancelProject.setVisibility(View.VISIBLE);
+                    btnSaveProject.setVisibility(View.VISIBLE);
+                    btnAddProject.setVisibility(View.GONE);
 
-                isEditingProject = true;
-                editingProjectPosition = position;
+                    isEditingProject = true;
+                    editingProjectPosition = position;
+                });
             }
 
             @Override
             public void onDelete(Project project, int position) {
-                projectList.remove(position);
-                projectAdapter.notifyDataSetChanged();
-                Toast.makeText(MainActivity.this, "Project deleted", Toast.LENGTH_SHORT).show();
+                showPasswordDialog(() -> {
+                    projectList.remove(position);
+                    projectAdapter.notifyDataSetChanged();
+                    Toast.makeText(MainActivity.this, "Project deleted", Toast.LENGTH_SHORT).show();
+                });
             }
         });
 
         rvProjects.setLayoutManager(new LinearLayoutManager(this));
         rvProjects.setAdapter(projectAdapter);
 
-        // Add project button click: show input fields + Save/Cancel buttons
+        // Add project button click: show input fields + Save/Cancel buttons with password check
         btnAddProject.setOnClickListener(v -> {
-            etProjectName.setVisibility(View.VISIBLE);
-            etProjectDesc.setVisibility(View.VISIBLE);
-            projectbuttonGroup.setVisibility(View.VISIBLE);
-            btnCancelProject.setVisibility(View.VISIBLE);
-            btnSaveProject.setVisibility(View.VISIBLE);
-            btnAddProject.setVisibility(View.GONE);
-
-            isEditingProject = false;
-            editingProjectPosition = -1;
+            showPasswordDialog(() -> {
+                isEditingProject = false;
+                editingProjectPosition = -1;
+                etProjectName.setVisibility(View.VISIBLE);
+                etProjectDesc.setVisibility(View.VISIBLE);
+                projectbuttonGroup.setVisibility(View.VISIBLE);
+                btnCancelProject.setVisibility(View.VISIBLE);
+                btnSaveProject.setVisibility(View.VISIBLE);
+                btnAddProject.setVisibility(View.GONE);
+            });
         });
 
         // Save project button click
@@ -241,45 +253,49 @@ public class MainActivity extends AppCompatActivity {
         skillList.add(new Skill("ReactJS", 71.4f));
         skillList.add(new Skill("Firebase", 70.4f));
 
-        // Setup SkillAdapter with edit/delete listener
+        // Setup SkillAdapter with password-protected edit/delete
         skillAdapter = new SkillAdapter(skillList, new SkillAdapter.OnSkillActionListener() {
             @Override
             public void onDelete(Skill skill) {
-                skillList.remove(skill);
-                skillAdapter.notifyDataSetChanged();
-                updatePieChart();
+                showPasswordDialog(() -> {
+                    skillList.remove(skill);
+                    skillAdapter.notifyDataSetChanged();
+                    updatePieChart();
+                });
             }
 
             @Override
             public void onEdit(Skill skill, int position) {
-                etSkillName.setText(skill.name);
-                etSkillPercent.setText(String.valueOf(skill.accuracy));
-                etSkillName.setVisibility(View.VISIBLE);
-                etSkillPercent.setVisibility(View.VISIBLE);
-                skillButtonGroup.setVisibility(View.VISIBLE);
-                btnCancelSkill.setVisibility(View.VISIBLE);
-                btnSaveSkill.setVisibility(View.VISIBLE);
-                btnAddSkill.setVisibility(View.GONE);
+                showPasswordDialog(() -> {
+                    etSkillName.setText(skill.name);
+                    etSkillPercent.setText(String.valueOf(skill.accuracy));
+                    etSkillName.setVisibility(View.VISIBLE);
+                    etSkillPercent.setVisibility(View.VISIBLE);
+                    skillButtonGroup.setVisibility(View.VISIBLE);
+                    btnCancelSkill.setVisibility(View.VISIBLE);
+                    btnSaveSkill.setVisibility(View.VISIBLE);
+                    btnAddSkill.setVisibility(View.GONE);
 
-                isAddingSkill = true;
-                editingSkillPosition = position;
+                    isAddingSkill = true;
+                    editingSkillPosition = position;
+                });
             }
         });
 
         rvSkills.setLayoutManager(new LinearLayoutManager(this));
         rvSkills.setAdapter(skillAdapter);
 
-        // Add Skill button click
         btnAddSkill.setOnClickListener(v -> {
-            etSkillName.setVisibility(View.VISIBLE);
-            etSkillPercent.setVisibility(View.VISIBLE);
-            skillButtonGroup.setVisibility(View.VISIBLE);
-            btnCancelSkill.setVisibility(View.VISIBLE);
-            btnSaveSkill.setVisibility(View.VISIBLE);
-            btnAddSkill.setVisibility(View.GONE);
-
-            isAddingSkill = false;
-            editingSkillPosition = -1;
+            showPasswordDialog(() -> {
+                isAddingSkill = false;
+                editingSkillPosition = -1;
+                etSkillName.setVisibility(View.VISIBLE);
+                etSkillPercent.setVisibility(View.VISIBLE);
+                skillButtonGroup.setVisibility(View.VISIBLE);
+                btnCancelSkill.setVisibility(View.VISIBLE);
+                btnSaveSkill.setVisibility(View.VISIBLE);
+                btnAddSkill.setVisibility(View.GONE);
+            });
         });
 
         // Save skill button click
@@ -325,7 +341,6 @@ public class MainActivity extends AppCompatActivity {
             editingSkillPosition = -1;
         });
 
-
         btnCancelSkill.setOnClickListener(v -> {
             etSkillName.setText("");
             etSkillPercent.setText("");
@@ -339,7 +354,6 @@ public class MainActivity extends AppCompatActivity {
             isAddingSkill = false;
             editingSkillPosition = -1;
         });
-
 
         // Show/hide skills
         btnShowSkills.setOnClickListener(v -> {
@@ -358,7 +372,7 @@ public class MainActivity extends AppCompatActivity {
         // Contact me dialog
         btnContact.setOnClickListener(v -> {
             String[] options = {"Phone", "Email"};
-            new android.app.AlertDialog.Builder(MainActivity.this)
+            new AlertDialog.Builder(MainActivity.this)
                     .setTitle("Contact me I'm Guash Berhe")
                     .setItems(options, (dialog, which) -> {
                         if (which == 0) {
@@ -396,6 +410,29 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.btnYouTube).setOnClickListener(v -> openUrl("https://www.youtube.com/@Amerawi"));
 
         updatePieChart();
+    }
+
+    private void showPasswordDialog(Runnable onSuccess) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+
+        Toast.makeText(MainActivity.this, "You can update My portfolio only if you have privilege!\nOtherwise, you can only view my portfolio.", Toast.LENGTH_LONG).show();
+        builder.setTitle("Enter admin Password ");
+
+        final EditText input = new EditText(MainActivity.this);
+        input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+        builder.setView(input);
+
+        builder.setPositiveButton("OK", (dialog, which) -> {
+            String enteredPassword = input.getText().toString();
+            if (enteredPassword.equals(ADMIN_PASSWORD)) {
+                onSuccess.run();
+            } else {
+                Toast.makeText(MainActivity.this, "Incorrect password", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        builder.setNegativeButton("Cancel", null);
+        builder.show();
     }
 
     private void updatePieChart() {

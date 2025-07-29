@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "904649364615",
+    "firebase_url": "https://myportifelo-default-rtdb.firebaseio.com",
+    "project_id": "myportifelo",
+    "storage_bucket": "myportifelo.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:904649364615:android:adaafa4488a8e96e00d422",
+        "android_client_info": {
+          "package_name": "com.guas.myportfolio"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvAanZVXqb5QylfunWMV72qkNkGH-f5eI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

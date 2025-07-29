@@ -6,7 +6,7 @@
     android:id="@+id/mainLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="#F0F4F8"
     tools:context=".MainActivity">
 
     <ScrollView
@@ -83,7 +83,7 @@
                 android:textAllCaps="false"
                 android:layout_marginTop="24dp"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
-                android:textColor="@color/pie_react"
+                android:textColor="#75A9FF"
                 android:backgroundTint="@color/white"/>
 
             <com.google.android.material.textview.MaterialTextView
@@ -118,7 +118,7 @@
                 android:textAllCaps="false"
                 android:layout_marginTop="16dp"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
-                android:textColor="@color/pie_firebase"
+                android:textColor="#75A9FF"
                 android:backgroundTint="@color/white"/>
 
             <com.google.android.material.textview.MaterialTextView
